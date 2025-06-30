@@ -1,6 +1,4 @@
-# replit.md
-
-## Overview
+# Overview
 
 This is a modern full-stack web application built as a personal portfolio for Mohd Bilal Khan, an AI/ML researcher and developer. The application showcases a developer-themed portfolio with a GitHub-inspired dark design, featuring sections for about, projects, experience, skills, achievements, and contact information.
 
