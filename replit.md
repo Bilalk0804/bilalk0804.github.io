@@ -111,9 +111,19 @@ The application follows a monorepo structure with clear separation between front
 
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+- Preferred communication style: Simple, everyday language
+- Email: khanbilal080804@gmail.com (updated from bilalk0804@gmail.com)
+- Wanted a developer-themed portfolio similar to the provided sample but not exactly the same
+- Removed CGPA from education section as requested (outdated information)
+
+## Recent Changes
+
+- June 30, 2025: Updated email address across all contact sections to khanbilal080804@gmail.com
+- June 30, 2025: Fixed CSS import order issue (moved @import before @tailwind directives)
+- June 30, 2025: Added resume PDF to public directory for download functionality
+- June 30, 2025: Built complete portfolio with GitHub-inspired dark theme featuring purple/cyan accents
 
 ## Changelog
 
 Changelog:
-- June 30, 2025. Initial setup
+- June 30, 2025. Initial setup and complete portfolio implementation

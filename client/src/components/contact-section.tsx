@@ -3,14 +3,14 @@ import { Mail, Phone, Globe, Briefcase, MapPin, Github, Linkedin, Download } fro
 
 export default function ContactSection() {
   const contactInfo = [
-    { icon: Mail, label: "bilalk0804@gmail.com", href: "mailto:bilalk0804@gmail.com" },
+    { icon: Mail, label: "khanbilal080804@gmail.com", href: "mailto:khanbilal080804@gmail.com" },
     { icon: Phone, label: "+91 8192035071", href: "tel:+918192035071" },
     { icon: Github, label: "github.com/Bilalk0804", href: "https://github.com/Bilalk0804" },
     { icon: Linkedin, label: "linkedin.com/in/bilal-khan", href: "https://linkedin.com/in/bilal-khan" }
   ];
 
   const quickActions = [
-    { icon: Mail, label: "EMAIL", href: "mailto:bilalk0804@gmail.com", color: "purple" },
+    { icon: Mail, label: "EMAIL", href: "mailto:khanbilal080804@gmail.com", color: "purple" },
     { icon: Linkedin, label: "LINKEDIN", href: "https://linkedin.com/in/bilal-khan", color: "cyan" },
     { icon: Github, label: "GITHUB", href: "https://github.com/Bilalk0804", color: "green" },
     { icon: Download, label: "RESUME", href: "/api/resume", color: "yellow" }
