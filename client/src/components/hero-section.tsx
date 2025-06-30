@@ -61,8 +61,8 @@ export default function HeroSection() {
             <div className="text-sm text-text-secondary">Research Projects</div>
           </div>
           <div className="bg-github-card p-4 rounded-lg border border-github-border">
-            <div className="text-2xl font-bold text-cyan-400">1436</div>
-            <div className="text-sm text-text-secondary">CodeChef Rating</div>
+            <div className="text-2xl font-bold text-green-400">5+</div>
+            <div className="text-sm text-text-secondary">Projects Built</div>
           </div>
         </motion.div>
       </div>

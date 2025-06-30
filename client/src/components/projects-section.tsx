@@ -5,7 +5,7 @@ export default function ProjectsSection() {
   const projects = [
     {
       title: "PromptScout",
-      subtitle: "Research Agent",
+      subtitle: "AI Research Agent",
       description: "An intelligent research agent built with LangChain that enables controlled web access and summarization using LLMs. Features real-time querying, dynamic memory handling, and expert-like research behavior synthesis.",
       technologies: [
         { name: "LangChain", color: "purple" },
@@ -24,9 +24,9 @@ export default function ProjectsSection() {
       hoverColor: "purple"
     },
     {
-      title: "Chilli Classification",
+      title: "Chilli Disease Classification",
       subtitle: "ML Research Project",
-      description: "Deep learning research project focused on accurate classification of chili varieties using transfer learning. Achieved significant accuracy improvement through advanced preprocessing and algorithm optimization.",
+      description: "Deep learning research project focused on accurate classification of chili disease varieties using transfer learning. Achieved significant accuracy improvement through advanced preprocessing and algorithm optimization.",
       technologies: [
         { name: "Transfer Learning", color: "purple" },
         { name: "Python", color: "cyan" },
@@ -36,12 +36,90 @@ export default function ProjectsSection() {
       ],
       features: [
         "Accuracy improvement: 78% → 91%",
-        "Research paper authored and submitted",
-        "Advanced preprocessing & feature engineering"
+        "5-class disease classification",
+        "Research paper authored and published"
       ],
       githubUrl: "https://github.com/Bilalk0804/chilli-classification",
       paperUrl: "#",
       hoverColor: "cyan"
+    },
+    {
+      title: "MCP Servers Collection",
+      subtitle: "Development Tools",
+      description: "Custom Model Context Protocol (MCP) servers built for enhanced AI development workflows. Developed multiple server implementations for different use cases and integrations.",
+      technologies: [
+        { name: "Python", color: "cyan" },
+        { name: "FastAPI", color: "purple" },
+        { name: "MCP", color: "green" },
+        { name: "API Design", color: "yellow" }
+      ],
+      features: [
+        "Multiple MCP server implementations",
+        "Enhanced AI development workflows",
+        "Custom protocol integrations"
+      ],
+      githubUrl: "https://github.com/Bilalk0804/mcp-servers",
+      liveUrl: "#",
+      hoverColor: "green"
+    },
+    {
+      title: "AI Portfolio Website",
+      subtitle: "Full-Stack Development",
+      description: "Modern portfolio website built with React and TypeScript, featuring a developer-themed design with smooth animations and responsive layout. Showcases AI/ML projects and research work.",
+      technologies: [
+        { name: "React", color: "cyan" },
+        { name: "TypeScript", color: "purple" },
+        { name: "Tailwind CSS", color: "green" },
+        { name: "Framer Motion", color: "pink" },
+        { name: "PostgreSQL", color: "yellow" }
+      ],
+      features: [
+        "Responsive developer-themed design",
+        "Smooth animations with Framer Motion",
+        "Database integration and deployment"
+      ],
+      githubUrl: "https://github.com/Bilalk0804/portfolio",
+      liveUrl: "#",
+      hoverColor: "pink"
+    },
+    {
+      title: "Data Analysis Projects",
+      subtitle: "Machine Learning & Analytics",
+      description: "Collection of data analysis and machine learning projects focusing on real-world datasets. Includes exploratory data analysis, feature engineering, and predictive modeling techniques.",
+      technologies: [
+        { name: "Pandas", color: "purple" },
+        { name: "NumPy", color: "cyan" },
+        { name: "Scikit-learn", color: "green" },
+        { name: "Matplotlib", color: "yellow" },
+        { name: "Jupyter", color: "pink" }
+      ],
+      features: [
+        "Comprehensive data exploration",
+        "Advanced feature engineering",
+        "Multiple ML model implementations"
+      ],
+      githubUrl: "https://github.com/Bilalk0804/data-analysis",
+      liveUrl: "#",
+      hoverColor: "yellow"
+    },
+    {
+      title: "Open Source Contributions",
+      subtitle: "Community Projects",
+      description: "Active contributions to open-source projects in AI/ML space. Participated in GirlScript Summer of Code 2024 and contributed to various repositories with bug fixes and feature implementations.",
+      technologies: [
+        { name: "Git", color: "orange" },
+        { name: "GitHub", color: "purple" },
+        { name: "Python", color: "cyan" },
+        { name: "Documentation", color: "green" }
+      ],
+      features: [
+        "GirlScript Summer of Code contributor",
+        "Multiple repository contributions",
+        "Documentation and bug fixes"
+      ],
+      githubUrl: "https://github.com/Bilalk0804",
+      liveUrl: "#",
+      hoverColor: "orange"
     }
   ];
 
@@ -52,6 +130,7 @@ export default function ProjectsSection() {
       case "green": return "text-green-400 border-green-400/30";
       case "yellow": return "text-yellow-400 border-yellow-400/30";
       case "pink": return "text-pink-400 border-pink-400/30";
+      case "orange": return "text-orange-400 border-orange-400/30";
       default: return "text-gray-400 border-gray-400/30";
     }
   };
@@ -68,7 +147,7 @@ export default function ProjectsSection() {
           <span className="text-purple-400">#</span> FEATURED PROJECTS
         </motion.h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
