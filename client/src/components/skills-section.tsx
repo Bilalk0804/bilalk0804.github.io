@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code, Layers, Database, Brain } from "lucide-react";
+import { Code, Layers, Database, Brain, GitBranch } from "lucide-react";
 
 export default function SkillsSection() {
   const skillCategories = [
@@ -24,7 +24,13 @@ export default function SkillsSection() {
       title: "Databases",
       icon: Database,
       color: "green",
-      skills: ["MySQL", "Git", "GitHub", "GitLab"]
+      skills: ["MySQL"]
+    },
+    {
+      title: "Version Control",
+      icon: GitBranch,
+      color: "orange",
+      skills: ["Git", "GitHub", "GitLab"]
     },
     {
       title: "AI/ML",
@@ -39,6 +45,7 @@ export default function SkillsSection() {
       case "purple": return "text-purple-400 bg-purple-400";
       case "cyan": return "text-cyan-400 bg-cyan-400";
       case "green": return "text-green-400 bg-green-400";
+      case "orange": return "text-orange-400 bg-orange-400";
       case "yellow": return "text-yellow-400 bg-yellow-400";
       default: return "text-gray-400 bg-gray-400";
     }
