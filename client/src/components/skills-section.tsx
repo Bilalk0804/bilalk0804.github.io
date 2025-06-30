@@ -36,7 +36,7 @@ export default function SkillsSection() {
       title: "AI/ML",
       icon: Brain,
       color: "yellow",
-      skills: ["Machine Learning", "Transfer Learning", "Data Analysis", "WandB"]
+      skills: ["Machine Learning", "Transfer Learning", "RAG", "Prompt Engineering", "Data Analysis", "WandB"]
     }
   ];
 
