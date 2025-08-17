@@ -1,15 +1,42 @@
+import { desc } from "drizzle-orm";
 import { motion } from "framer-motion";
 import { Github, Microscope } from "lucide-react";
+import { title } from "process";
 
 export default function ExperienceSection() {
   const experiences = [
+    {
+      title: "GSSOC Extended '25",
+      period: "Aug 2025 - ongoing",
+      description: "Selected among contributors for open-source programs. Built foundational skills in Git, GitHub, and collaborative development, which were later applied in building PromptScout and custom MCP servers.",
+      icon: Github,
+      color: "purple",
+      side: "left"
+    },
+    {
+      title: "Google Campus Ambassador",
+      period: "Aug 2025 - Ongoing",
+      description: "Actively promoting Google technologies and initiatives on campus. Engaging with students to foster a community around Google products and services.",
+      icon: Github,
+      color:"green",
+      side: "right"     
+
+    },
+    {
+      title:"Open Source Connect India",
+      period: "Aug 2025 - Ongoing",
+      description: "Contributing to the Open Source Connect India initiative, focusing on enhancing open-source collaboration and community engagement. Actively participating in discussions and projects to promote open-source culture in India.",
+      icon: Github,
+      color: "blue",
+      side: "left"
+    },
     {
       title: "GSSOC Extended '24",
       period: "Oct 2024 - Nov 2024",
       description: "Selected among contributors for open-source programs. Built foundational skills in Git, GitHub, and collaborative development, which were later applied in building PromptScout and custom MCP servers.",
       icon: Github,
       color: "purple",
-      side: "left"
+      side: "right"
     },
     {
       title: "Research Work",
