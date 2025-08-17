@@ -18,7 +18,7 @@ export default function SkillsSection() {
       title: "Frameworks",
       icon: Layers,
       color: "cyan",
-      skills: ["LangChain", "FastAPI", "Streamlit", "Pandas", "NumPy"]
+      skills: ["LangChain", "FastAPI", "Streamlit", "Pandas", "NumPy", "Flask"]
     },
     {
       title: "Databases",

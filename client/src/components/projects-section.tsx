@@ -4,6 +4,46 @@ import { Github, ExternalLink, FileText } from "lucide-react";
 export default function ProjectsSection() {
   const projects = [
     {
+      title: "LLM-Powered Query-Retrieval System",
+      subtitle: "RAG Document Processing",
+      description: "A sophisticated document processing and query system for insurance, legal, HR, and compliance domains. Uses Retrieval-Augmented Generation (RAG) to provide accurate, contextual responses with explainable AI and confidence scores.",
+      technologies: [
+        { name: "RAG", color: "purple" },
+        { name: "FAISS", color: "cyan" },
+        { name: "FastAPI", color: "green" },
+        { name: "Ollama", color: "yellow" },
+        { name: "Pydantic", color: "pink" }
+      ],
+      features: [
+        "Multi-format document processing (PDF, DOCX, email)",
+        "Semantic search with sentence transformers",
+        "Domain classification with confidence scoring"
+      ],
+      githubUrl: "#",
+      liveUrl: "#",
+      hoverColor: "purple"
+    },
+    {
+      title: "PortalHelper AI Assistant",
+      subtitle: "Knowledge Graph Bot",
+      description: "An intelligent AI-based helping bot for information retrieval from knowledge graphs. Built with LangChain, Ollama (deepseek model), and mxbai-embed-large embeddings for semantic search and structured responses.",
+      technologies: [
+        { name: "LangChain", color: "cyan" },
+        { name: "Ollama", color: "purple" },
+        { name: "ChromaDB", color: "green" },
+        { name: "Selenium", color: "yellow" },
+        { name: "Knowledge Graph", color: "pink" }
+      ],
+      features: [
+        "AI-powered responses with deepseek model",
+        "Semantic search with mxbai-embed-large",
+        "Web scraping and knowledge graph persistence"
+      ],
+      githubUrl: "#",
+      liveUrl: "#",
+      hoverColor: "cyan"
+    },
+    {
       title: "PromptScout",
       subtitle: "AI Research Agent",
       description: "An intelligent research agent built with LangChain that enables controlled web access and summarization using LLMs. Features real-time querying, dynamic memory handling, and expert-like research behavior synthesis.",
@@ -78,7 +118,7 @@ export default function ProjectsSection() {
         "Smooth animations with Framer Motion",
         "Database integration and deployment"
       ],
-      githubUrl: "https://github.com/Bilalk0804/portfolio",
+      githubUrl: "https://bilalk0804.github.io/",
       liveUrl: "#",
       hoverColor: "pink"
     },
@@ -135,6 +175,54 @@ export default function ProjectsSection() {
     }
   };
 
+  const getHoverBorderClass = (color: string) => {
+    switch (color) {
+      case "purple": return "hover:border-purple-400";
+      case "cyan": return "hover:border-cyan-400";
+      case "green": return "hover:border-green-400";
+      case "yellow": return "hover:border-yellow-400";
+      case "pink": return "hover:border-pink-400";
+      case "orange": return "hover:border-orange-400";
+      default: return "hover:border-gray-400";
+    }
+  };
+
+  const getHoverShadowClass = (color: string) => {
+    switch (color) {
+      case "purple": return "hover:shadow-purple-500/10";
+      case "cyan": return "hover:shadow-cyan-500/10";
+      case "green": return "hover:shadow-green-500/10";
+      case "yellow": return "hover:shadow-yellow-500/10";
+      case "pink": return "hover:shadow-pink-500/10";
+      case "orange": return "hover:shadow-orange-500/10";
+      default: return "hover:shadow-gray-500/10";
+    }
+  };
+
+  const getGroupHoverBorderClass = (color: string) => {
+    switch (color) {
+      case "purple": return "group-hover:border-purple-400/30";
+      case "cyan": return "group-hover:border-cyan-400/30";
+      case "green": return "group-hover:border-green-400/30";
+      case "yellow": return "group-hover:border-yellow-400/30";
+      case "pink": return "group-hover:border-pink-400/30";
+      case "orange": return "group-hover:border-orange-400/30";
+      default: return "group-hover:border-gray-400/30";
+    }
+  };
+
+  const getTextColorClass = (color: string) => {
+    switch (color) {
+      case "purple": return "text-purple-400";
+      case "cyan": return "text-cyan-400";
+      case "green": return "text-green-400";
+      case "yellow": return "text-yellow-400";
+      case "pink": return "text-pink-400";
+      case "orange": return "text-orange-400";
+      default: return "text-gray-400";
+    }
+  };
+
   return (
     <section id="projects" className="py-20 bg-github-dark">
       <div className="max-w-6xl mx-auto px-6">
@@ -150,11 +238,11 @@ export default function ProjectsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
-              key={project.title}
+              key={`${project.title}-${index}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`bg-github-card p-8 rounded-lg border border-github-border hover:border-${project.hoverColor}-400 transition-all duration-300 group hover:shadow-xl hover:shadow-${project.hoverColor}-500/10`}
+              className={`bg-github-card p-8 rounded-lg border border-github-border ${getHoverBorderClass(project.hoverColor)} transition-all duration-300 group hover:shadow-xl ${getHoverShadowClass(project.hoverColor)}`}
             >
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-2xl font-bold font-mono">{project.title}</h3>
@@ -177,7 +265,7 @@ export default function ProjectsSection() {
                 </div>
               </div>
               
-              <div className={`text-${project.hoverColor}-400 mb-4`}>{project.subtitle}</div>
+              <div className={`${getTextColorClass(project.hoverColor)} mb-4`}>{project.subtitle}</div>
               
               <p className="text-text-secondary mb-6">
                 {project.description}
@@ -194,11 +282,11 @@ export default function ProjectsSection() {
                 ))}
               </div>
               
-              <div className={`bg-github-dark p-3 rounded border border-github-border group-hover:border-${project.hoverColor}-400/30 transition-colors`}>
+              <div className={`bg-github-dark p-3 rounded border border-github-border ${getGroupHoverBorderClass(project.hoverColor)} transition-colors`}>
                 <div className="font-mono text-xs text-text-secondary">
                   {project.features.map((feature, featureIndex) => (
                     <div key={featureIndex}>
-                      <span className={`text-${project.hoverColor}-400`}>✓</span> {feature}
+                      <span className={getTextColorClass(project.hoverColor)}>✓</span> {feature}
                       {featureIndex < project.features.length - 1 && <br />}
                     </div>
                   ))}

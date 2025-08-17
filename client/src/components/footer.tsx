@@ -18,7 +18,7 @@ export default function Footer() {
               <Github className="w-5 h-5" />
             </a>
             <a 
-              href="https://linkedin.com/in/bilal-khan" 
+              href="https://www.linkedin.com/in/bilal-khan-219880285" 
               className="text-text-secondary hover:text-cyan-400 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
