@@ -44,7 +44,7 @@ export default function ExperienceSection() {
       description: "Conducting in-depth research on machine learning classification techniques. Authored research papers and achieved significant model performance improvements through advanced optimization techniques.",
       icon: Microscope,
       color: "cyan",
-      side: "right"
+      side: "left"
     }
   ];
 
