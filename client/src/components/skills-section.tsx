@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code, Layers, Database, Brain, GitBranch } from "lucide-react";
+import { Code, Layers, Database, Brain, GitBranch, Cpu } from "lucide-react";
 
 export default function SkillsSection() {
   const skillCategories = [
@@ -11,33 +11,66 @@ export default function SkillsSection() {
         { name: "Python", level: 5 },
         { name: "JavaScript", level: 4 },
         { name: "C++", level: 4 },
-        { name: "Java", level: 3 }
+        { name: "Go", level: 4 },
+        { name: "Java", level: 3 },
+        { name: "Shell Scripting", level: 3 }
+
       ]
     },
     {
-      title: "Frameworks",
-      icon: Layers,
-      color: "cyan",
-      skills: ["LangChain", "FastAPI", "Streamlit", "Pandas", "NumPy", "Flask"]
-    },
-    {
-      title: "Databases",
-      icon: Database,
-      color: "green",
-      skills: ["MySQL"]
-    },
-    {
-      title: "Version Control",
-      icon: GitBranch,
-      color: "orange",
-      skills: ["Git", "GitHub", "GitLab"]
-    },
-    {
-      title: "AI/ML",
-      icon: Brain,
-      color: "yellow",
-      skills: ["Machine Learning", "Transfer Learning", "RAG", "Prompt Engineering", "Data Analysis", "WandB"]
-    }
+    title: "AI & ML Engineering",
+    icon: Brain,
+    color: "purple",
+    skills: [
+      "Agentic Workflows (LangGraph)",
+      "PyTorch",
+      "LLM Orchestration & Eval (Ragas)",
+      "RAG & GraphRAG",
+      "Model Quantization (Ollama)",
+      "MLOps & WandB"
+    ]
+  },
+  {
+    title: "Frameworks & Tools",
+    icon: Layers,
+    color: "cyan",
+    skills: [
+      "FastAPI",
+      "Pydantic",
+      "LlamaIndex",
+      "React.js",
+      "Next.js",
+      "Tailwind CSS",
+      "Streamlit",
+      "Flask"
+    ]
+  },
+  {
+    title: "Infrastructure & Data",
+    icon: Database,
+    color: "green",
+    skills: [
+      "Neo4j (Knowledge Graphs)",
+      "Vector DBs (Chroma/FAISS)",
+      "PostgreSQL",
+      "MongoDB",
+      "Docker",
+      "Redis"
+    ]
+  },
+  {
+    title: "Systems & DevOps",
+    icon: Cpu, // Using Cpu for System Programming
+    color: "orange",
+    skills: [
+      "System Programming (Golang/C)",
+      "Linux (Arch/Bash)",
+      "NIST 800-88 Standards",
+      "Git/GitHub",
+      "CI/CD Pipelines",
+      "Concurrency & Multithreading"
+    ]
+  }
   ];
 
   const getColorClasses = (color: string) => {
