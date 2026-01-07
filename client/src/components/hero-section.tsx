@@ -16,7 +16,7 @@ export default function HeroSection() {
             <span className="text-text-primary">MOHD BILAL KHAN</span>
           </h1>
           <div className="text-2xl md:text-3xl font-mono mb-6">
-            <span className="text-cyan-400 typing-text">AI/ML RESEARCHER & DEVELOPER</span>
+            <span className="text-cyan-400 typing-text">AI/ML and Digital Forensics RESEARCHER & DEVELOPER</span>
           </div>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto mb-8">
             B.Tech ECE Student at IIIT Pune | Building AI products that matter | 
@@ -53,8 +53,8 @@ export default function HeroSection() {
           className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto"
         >
           <div className="bg-github-card p-4 rounded-lg border border-github-border">
-            <div className="text-2xl font-bold text-cyan-400">91%</div>
-            <div className="text-sm text-text-secondary">ML Model Accuracy</div>
+            <div className="text-2xl font-bold text-cyan-400">94.56%</div>
+            <div className="text-sm text-text-secondary">Chilli Data Classification Model Accuracy</div>
           </div>
           <div className="bg-github-card p-4 rounded-lg border border-github-border">
             <div className="text-2xl font-bold text-purple-400">2+</div>
