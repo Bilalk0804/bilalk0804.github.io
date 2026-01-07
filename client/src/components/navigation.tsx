@@ -28,7 +28,7 @@ export default function Navigation() {
     // Create a link element and trigger download
     const link = document.createElement('a');
     link.href = '/api/resume';
-    link.download = 'Mohd_Bilal_Khan_Resume.pdf';
+    link.download = 'resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
