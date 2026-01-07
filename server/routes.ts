@@ -6,7 +6,7 @@ import fs from "fs";
 export async function registerRoutes(app: Express): Promise<Server> {
   // Serve resume PDF
   app.get("/api/resume", (req, res) => {
-    const resumePath = path.join(process.cwd(), "public", "resume.pdf");
+    const resumePath = path.join(__dirname, "..", "public", "resume.pdf");
     
     if (fs.existsSync(resumePath)) {
       res.setHeader('Content-Type', 'application/pdf');
