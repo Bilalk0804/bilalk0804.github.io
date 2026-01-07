@@ -57,11 +57,11 @@ export default function HeroSection() {
             <div className="text-sm text-text-secondary">Chilli Data Classification Model Accuracy</div>
           </div>
           <div className="bg-github-card p-4 rounded-lg border border-github-border">
-            <div className="text-2xl font-bold text-purple-400">2+</div>
+            <div className="text-2xl font-bold text-purple-400">3+</div>
             <div className="text-sm text-text-secondary">Research Projects</div>
           </div>
           <div className="bg-github-card p-4 rounded-lg border border-github-border">
-            <div className="text-2xl font-bold text-green-400">5+</div>
+            <div className="text-2xl font-bold text-green-400">6+</div>
             <div className="text-sm text-text-secondary">Projects Built</div>
           </div>
         </motion.div>
