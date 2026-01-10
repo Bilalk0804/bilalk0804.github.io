@@ -13,7 +13,7 @@ export default function ContactSection() {
     { icon: Mail, label: "EMAIL", href: "mailto:khanbilal080804@gmail.com", color: "purple" },
     { icon: Linkedin, label: "LINKEDIN", href: "https://linkedin.com/in/bilal-khan", color: "cyan" },
     { icon: Github, label: "GITHUB", href: "https://github.com/Bilalk0804", color: "green" },
-    { icon: Download, label: "RESUME", href: "/api/resume", color: "yellow" }
+    { icon: Download, label: "RESUME", href: "/resume.pdf", color: "yellow" }
   ];
 
   return (
