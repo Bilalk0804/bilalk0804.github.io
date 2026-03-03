@@ -3,16 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Mohd Bilal Khan - AI/ML Developer & Researcher</title>
-    <meta name="description" content="AI/ML researcher and developer specializing in LangChain, machine learning, and research projects. B.Tech ECE student at IIIT Pune with expertise in transfer learning and neural networks." />
+    <title>Mohd Bilal Khan - AI Engineer & Researcher</title>
+    <meta name="description" content="AI/ML researcher and developer specializing in agentic AI, digital forensics, and full-stack systems. B.Tech ECE student at IIIT Pune." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      // GitHub Pages SPA routing: restore path from ?p= query param set by 404.html
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+        // Also handle ?p= param from 404.html
+        var p = new URLSearchParams(location.search).get('p');
+        if (p) {
+          history.replaceState(null, null, decodeURIComponent(p));
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
   </body>
 </html>
