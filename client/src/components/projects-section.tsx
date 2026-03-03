@@ -61,6 +61,38 @@ export default function ProjectsSection() {
       kaggleUrl: "https://www.kaggle.com/code/bill080804/chilli-plant-leaves-with-augmentation",
       gradient: "from-green-900 via-emerald-900 to-black",
     },
+    // --- Newly Added Projects Below ---
+    {
+      title: "Nirnay",
+      subtitle: "AI Agent for Systemic Analysis",
+      description: "Developed an AI agent tailored for systemic analysis and startup ideation.",
+      tags: ["AI AGENT", "IDEATION", "ANALYSIS"],
+      technologies: ["AI/ML", "Python"], 
+      category: "AI/ML",
+      githubUrl: "https://github.com/Bilalk0804/Nirnay",
+      gradient: "from-blue-900 via-cyan-900 to-black",
+    },
+    {
+      title: "On-Device Speech Translation",
+      subtitle: "Real-Time ARM CPU System",
+      description: "Engineered a real-time, on-device speech-to-speech translation system optimized for ARM CPUs utilizing SME2 and NEON instructions.",
+      tags: ["EMBEDDED", "C/C++", "SPEECH"],
+      technologies: ["C++", "C", "ARM NEON", "SME2"],
+      category: "RESEARCH",
+      githubUrl: "https://github.com/Bilalk0804/Speech-to-Speech",
+      gradient: "from-orange-900 via-amber-900 to-black",
+    },
+    {
+      title: "EvoMind",
+      subtitle: "AI Therapist & Emotional Support Agent",
+      description: "Conversational AI agent designed to support users emotionally — listens, understands mood patterns, and provides empathetic, contextual responses. Built with a focus on mental wellness, offering a safe space for users to express themselves and receive non-judgmental guidance.",
+      tags: ["AI AGENT", "MENTAL HEALTH", "CONVERSATIONAL AI"],
+      technologies: ["Python", "LLM", "RAG", "FastAPI"],
+      category: "AI/ML",
+      githubUrl: "https://github.com/Bilalk0804/EvoMind",
+      gradient: "from-teal-900 via-emerald-900 to-black",
+    },
+  
   ];
 
   const filters = ["ALL", "AI/ML", "SECURITY", "RESEARCH"];
