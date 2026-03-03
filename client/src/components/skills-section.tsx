@@ -1,154 +1,58 @@
 import { motion } from "framer-motion";
-import { Code, Layers, Database, Brain, GitBranch, Cpu } from "lucide-react";
 
 export default function SkillsSection() {
   const skillCategories = [
     {
       title: "Languages",
-      icon: Code,
-      color: "purple",
-      skills: [
-        { name: "Python", level: 5 },
-        { name: "JavaScript", level: 4 },
-        { name: "C++", level: 4 },
-        { name: "Go", level: 4 },
-        { name: "Java", level: 3 },
-        { name: "Shell Scripting", level: 3 }
-
-      ]
+      skills: ["C++", "Python", "Go (Golang)", "Java", "JavaScript", "Shell Scripting"]
     },
     {
-    title: "AI & ML Engineering",
-    icon: Brain,
-    color: "purple",
-    skills: [
-      "Agentic Workflows (LangGraph)",
-      "PyTorch",
-      "LLM Orchestration & Eval (Ragas)",
-      "RAG & GraphRAG",
-      "Model Quantization (Ollama)",
-      "MLOps & WandB"
-    ]
-  },
-  {
-    title: "Frameworks & Tools",
-    icon: Layers,
-    color: "cyan",
-    skills: [
-      "FastAPI",
-      "Pydantic",
-      "LlamaIndex",
-      "React.js",
-      "Next.js",
-      "Tailwind CSS",
-      "Streamlit",
-      "Flask"
-    ]
-  },
-  {
-    title: "Infrastructure & Data",
-    icon: Database,
-    color: "green",
-    skills: [
-      "Neo4j (Knowledge Graphs)",
-      "Vector DBs (Chroma/FAISS)",
-      "PostgreSQL",
-      "MongoDB",
-      "Docker",
-      "Redis"
-    ]
-  },
-  {
-    title: "Systems & DevOps",
-    icon: Cpu, // Using Cpu for System Programming
-    color: "orange",
-    skills: [
-      "System Programming (Golang/C)",
-      "Linux (Arch/Bash)",
-      "NIST 800-88 Standards",
-      "Git/GitHub",
-      "CI/CD Pipelines",
-      "Concurrency & Multithreading"
-    ]
-  }
+      title: "AI / ML",
+      skills: ["PyTorch", "LangGraph", "RAG / GraphRAG", "CLIP", "Transformers", "YOLOv8", "MLOps / WandB"]
+    },
+    {
+      title: "Web & DevOps",
+      skills: ["React", "FastAPI", "Flask", "Streamlit", "Docker", "Git / GitHub", "Postman"]
+    },
+    {
+      title: "Databases",
+      skills: ["Neo4j (Graph DB)", "ChromaDB", "FAISS", "Supabase", "PostgreSQL", "MongoDB"]
+    }
   ];
 
-  const getColorClasses = (color: string) => {
-    switch (color) {
-      case "purple": return "text-purple-400 bg-purple-400";
-      case "cyan": return "text-cyan-400 bg-cyan-400";
-      case "green": return "text-green-400 bg-green-400";
-      case "orange": return "text-orange-400 bg-orange-400";
-      case "yellow": return "text-yellow-400 bg-yellow-400";
-      default: return "text-gray-400 bg-gray-400";
-    }
-  };
-
   return (
-    <section id="skills" className="py-20 bg-github-dark">
+    <section id="skills" className="py-24 bg-black">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold font-mono text-center mb-16"
+          className="text-4xl font-bold font-mono text-center mb-16 text-white"
         >
-          <span className="text-purple-400">#</span> TECHNICAL SKILLS
+          SKILLS
         </motion.h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skillCategories.map((category, index) => {
-            const Icon = category.icon;
-            const colorClasses = getColorClasses(category.color);
-            
-            return (
-              <motion.div
-                key={category.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`bg-github-card p-6 rounded-lg border border-github-border hover:border-${category.color}-400 transition-all duration-300`}
-              >
-                <div className="flex items-center mb-4">
-                  <Icon className={`${colorClasses.split(' ')[0]} w-6 h-6 mr-3`} />
-                  <h3 className="text-lg font-bold font-mono">{category.title}</h3>
-                </div>
-                
-                <div className="space-y-3">
-                  {category.skills.map((skill) => {
-                    if (typeof skill === 'object') {
-                      // Skill with level (for Languages)
-                      return (
-                        <div key={skill.name} className="flex justify-between items-center">
-                          <span className="text-sm">{skill.name}</span>
-                          <div className="flex">
-                            {[...Array(5)].map((_, i) => (
-                              <div
-                                key={i}
-                                className={`w-2 h-2 rounded-full mr-1 ${
-                                  i < skill.level ? colorClasses.split(' ')[1] : 'bg-github-border'
-                                }`}
-                              />
-                            ))}
-                          </div>
-                        </div>
-                      );
-                    } else {
-                      // Simple skill badge
-                      return (
-                        <span
-                          key={skill}
-                          className={`inline-block bg-github-dark px-3 py-1 rounded-full text-xs font-mono border border-${category.color}-400/30 ${colorClasses.split(' ')[0]} mb-2 mr-2`}
-                        >
-                          {skill}
-                        </span>
-                      );
-                    }
-                  })}
-                </div>
-              </motion.div>
-            );
-          })}
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-white/5 p-6 rounded-lg border border-white/10 hover:border-white/30 transition-colors duration-300"
+            >
+              <h3 className="text-lg font-bold font-mono text-white mb-4">{category.title}</h3>
+              
+              <div className="space-y-2">
+                {category.skills.map((skill) => (
+                  <div key={skill} className="flex items-center">
+                    <span className="text-white/40 mr-3">•</span>
+                    <span className="text-white/70 text-sm">{skill}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

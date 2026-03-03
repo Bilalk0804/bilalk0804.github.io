@@ -1,69 +1,120 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { Github, Linkedin, FileText } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function HeroSection() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayClick = () => {
+    setIsPlaying(!isPlaying);
+    // You can add actual music playing logic here
+    const audio = new Audio('/music.mp3'); // Add your music file
+    if (!isPlaying) {
+      // audio.play().catch(() => {});
+    }
+  };
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 code-bg">
-      <div className="max-w-6xl mx-auto px-6 text-center">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-20 relative">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+        {/* Main Name */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <h1 className="text-5xl md:text-7xl font-bold font-mono mb-4">
-            <span className="text-text-primary">MOHD BILAL KHAN</span>
+          <h1 className="text-6xl md:text-8xl font-bold font-mono text-white mb-6 leading-tight">
+            MOHD BILAL KHAN
           </h1>
-          <div className="text-2xl md:text-3xl font-mono mb-6">
-            <span className="text-cyan-400 typing-text">AI/ML and Digital Forensics RESEARCHER & DEVELOPER</span>
-          </div>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto mb-8">
-            B.Tech ECE Student at IIIT Pune | Building AI products that matter | 
-            From research to real-world impact
+        </motion.div>
+
+        {/* Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="mb-6"
+        >
+          <p className="text-lg md:text-2xl font-mono text-white/80 tracking-widest">
+            AI ENGINEER — RESEARCHER — BUILDER
           </p>
         </motion.div>
-        
+
+        {/* Tagline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          className="mb-12"
         >
-          <Button
-            className="bg-accent-purple hover:bg-purple-600 px-8 py-3 rounded-lg font-mono transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 animate-glow"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            LET'S CONNECT <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
-          <Button
-            variant="outline"
-            className="border border-github-border hover:border-cyan-400 px-8 py-3 rounded-lg font-mono transition-all duration-300 bg-transparent text-text-primary hover:bg-transparent hover:text-cyan-400"
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            VIEW PROJECTS
-          </Button>
+          <p className="text-base md:text-lg text-white/60 font-mono max-w-2xl mx-auto">
+            I build intelligence systems and explore the boundaries of what AI can do
+          </p>
         </motion.div>
 
-        {/* Quick Stats */}
+        {/* Status */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mb-12"
+        >
+          <p className="text-white/50 font-mono text-sm md:text-base">
+            Currently: B.Tech ECE @ IIIT Pune :D
+          </p>
+        </motion.div>
+
+        {/* Music Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto"
+          className="mb-16"
         >
-          <div className="bg-github-card p-4 rounded-lg border border-github-border">
-            <div className="text-2xl font-bold text-cyan-400">94.56%</div>
-            <div className="text-sm text-text-secondary">Chilli Data Classification Model Accuracy</div>
+          <div className="flex flex-col items-center space-y-4">
+            <p className="text-white/60 font-mono text-sm tracking-widest">
+              MUSIC ✿
+            </p>
+            <Button
+              onClick={handlePlayClick}
+              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-black px-12 py-3 font-mono text-lg transition-all duration-300 rounded-none"
+            >
+              {isPlaying ? 'PAUSE' : 'PLAY'}
+            </Button>
           </div>
-          <div className="bg-github-card p-4 rounded-lg border border-github-border">
-            <div className="text-2xl font-bold text-purple-400">3+</div>
-            <div className="text-sm text-text-secondary">Research Projects</div>
-          </div>
-          <div className="bg-github-card p-4 rounded-lg border border-github-border">
-            <div className="text-2xl font-bold text-green-400">6+</div>
-            <div className="text-sm text-text-secondary">Projects Built</div>
-          </div>
+        </motion.div>
+
+        {/* Social Icons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="flex justify-center space-x-8"
+        >
+          <a
+            href="https://github.com/Bilalk0804"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/60 hover:text-white transition-colors duration-300"
+          >
+            <Github className="w-8 h-8" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/bilal-khan-219880285"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/60 hover:text-white transition-colors duration-300"
+          >
+            <Linkedin className="w-8 h-8" />
+          </a>
+          <a
+            href="/resume.pdf"
+            className="text-white/60 hover:text-white transition-colors duration-300"
+          >
+            <FileText className="w-8 h-8" />
+          </a>
         </motion.div>
       </div>
     </section>

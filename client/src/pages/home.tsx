@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
+import ParticlesBackground from "@/components/particles-background";
 import AboutSection from "@/components/about-section";
 import ProjectsSection from "@/components/projects-section";
 import ExperienceSection from "@/components/experience-section";
@@ -36,16 +37,19 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-github-dark text-text-primary">
-      <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ExperienceSection />
-      <SkillsSection />
-      <AchievementsSection />
-      <ContactSection />
-      <Footer />
+    <div className="min-h-screen bg-black text-white relative">
+      <ParticlesBackground />
+      <div className="relative z-10">
+        <Navigation />
+        <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
+        <ExperienceSection />
+        <SkillsSection />
+        <AchievementsSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </div>
   );
 }
