@@ -1,17 +1,31 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, FileText } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    const audio = new Audio("/music.mp3");
+    audio.loop = true;
+    audio.volume = 0.5;
+    audioRef.current = audio;
+    return () => {
+      audio.pause();
+      audio.src = "";
+    };
+  }, []);
 
   const handlePlayClick = () => {
-    setIsPlaying(!isPlaying);
-    // You can add actual music playing logic here
-    const audio = new Audio('/music.mp3'); // Add your music file
-    if (!isPlaying) {
-      // audio.play().catch(() => {});
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio.play().then(() => setIsPlaying(true)).catch((e) => console.error("Audio play failed:", e));
     }
   };
 

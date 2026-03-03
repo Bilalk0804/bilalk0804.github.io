@@ -84,6 +84,10 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        sans: ["Space Grotesk", "Inter", "sans-serif"],
+        mono: ["Space Mono", "JetBrains Mono", "monospace"],
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
