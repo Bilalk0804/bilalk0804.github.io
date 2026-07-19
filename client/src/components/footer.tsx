@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail, FileText } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-white/10 py-12">
+    <footer className="border-t border-white/10 py-12" style={{ background: "var(--bg-page)" }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="font-mono text-white/50 text-sm mb-6 md:mb-0">

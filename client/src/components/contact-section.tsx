@@ -10,7 +10,7 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-black">
+    <section id="contact" className="py-20" style={{ background: "var(--bg-page)" }}>
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

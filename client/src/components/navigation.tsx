@@ -1,48 +1,90 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/lib/theme";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [location] = useLocation();
+  const { theme, toggle } = useTheme();
 
   const navItems = [
-    { href: "/about", label: "ABOUT" },
-    { href: "/projects", label: "PROJECTS" },
+    { href: "/about",      label: "ABOUT" },
+    { href: "/projects",   label: "PROJECTS" },
     { href: "/experience", label: "EXPERIENCE" },
-    { href: "/connect", label: "CONNECT" },
+    { href: "/connect",    label: "CONNECT" },
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
+    <nav
+      className="fixed top-0 w-full z-50 backdrop-blur-sm border-b border-white/10"
+      style={{ background: "var(--nav-bg)" }}
+    >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <Link href="/" className="font-mono font-bold text-2xl text-white hover:text-white/80 transition-colors">
+          <Link
+            href="/"
+            className="font-mono font-bold text-2xl hover:opacity-70 transition-opacity"
+            style={{ color: "var(--fg-primary)" }}
+          >
             MBK
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-12">
+          <div className="hidden md:flex items-center space-x-10">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`font-mono text-sm tracking-wider transition-colors duration-300 ${
-                  location === item.href ? "text-white" : "text-white/60 hover:text-white"
-                }`}
+                className="font-mono text-sm tracking-wider transition-colors duration-300"
+                style={{
+                  color: location === item.href
+                    ? "var(--fg-primary)"
+                    : "var(--fg-50)",
+                }}
               >
                 {item.label}
               </Link>
             ))}
+
+            {/* Theme toggle */}
+            <button
+              onClick={toggle}
+              aria-label="Toggle theme"
+              className="w-8 h-8 flex items-center justify-center rounded-md border transition-all duration-200 hover:scale-110"
+              style={{
+                borderColor: "var(--fg-20)",
+                color: "var(--fg-60)",
+                background: "transparent",
+              }}
+            >
+              {theme === "dark"
+                ? <Sun className="w-4 h-4" />
+                : <Moon className="w-4 h-4" />
+              }
+            </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile row */}
+          <div className="md:hidden flex items-center gap-3">
+            <button
+              onClick={toggle}
+              aria-label="Toggle theme"
+              className="w-8 h-8 flex items-center justify-center rounded-md border transition-all duration-200"
+              style={{ borderColor: "var(--fg-20)", color: "var(--fg-60)" }}
+            >
+              {theme === "dark"
+                ? <Sun className="w-4 h-4" />
+                : <Moon className="w-4 h-4" />
+              }
+            </button>
+            <button
+              style={{ color: "var(--fg-primary)" }}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -53,9 +95,12 @@ export default function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`font-mono text-sm tracking-wider transition-colors duration-300 ${
-                    location === item.href ? "text-white" : "text-white/60 hover:text-white"
-                  }`}
+                  className="font-mono text-sm tracking-wider transition-colors duration-300"
+                  style={{
+                    color: location === item.href
+                      ? "var(--fg-primary)"
+                      : "var(--fg-50)",
+                  }}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}

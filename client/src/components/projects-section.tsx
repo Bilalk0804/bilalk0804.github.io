@@ -21,17 +21,6 @@ export default function ProjectsSection() {
 
   const projects: Project[] = [
     {
-      title: "NodeFlowAI",
-      subtitle: "AI-Powered Node Flow Platform",
-      description: "My latest venture — an AI-native node-based workflow platform that lets you visually build, connect, and deploy AI pipelines. Think n8n meets LangGraph with a beautiful interface. Live at nodeflowai.in.",
-      tags: ["LIVE PRODUCT", "AI PLATFORM", "FULL STACK"],
-      technologies: ["React", "TypeScript", "AI/ML", "Node.js"],
-      category: "AI/ML",
-      liveUrl: "https://nodeflowai.in",
-      image: "/projects/nodeflowai.jpg",
-      accentColor: "#cba6f7",
-    },
-    {
       title: "Sanjaya AI",
       subtitle: "Agentic Pharma Innovation Platform",
       description: "End-to-end Agentic AI system automating pharmaceutical molecule research, reducing discovery timelines from 2–3 months to minutes. Multi-worker LangGraph architecture with specialized agents conducting patent landscaping, clinical trial analysis, and market intelligence gathering.",
@@ -83,7 +72,7 @@ export default function ProjectsSection() {
   const filtered = activeFilter === "ALL" ? projects : projects.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="projects" className="py-24 bg-black">
+    <section id="projects" className="py-24" style={{ background: "var(--bg-page)" }}>
       <div className="max-w-6xl mx-auto px-6">
         {/* Section header */}
         <motion.div

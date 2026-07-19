@@ -5,7 +5,7 @@ import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white relative">
+    <div className="min-h-screen relative" style={{ background: "var(--bg-page)", color: "var(--fg-primary)" }}>
       <ParticlesBackground />
       <div className="relative z-10">
         <Navigation />
