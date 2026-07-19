@@ -44,6 +44,18 @@ export default function ProjectsSection() {
       accentColor: "#b4befe",
     },
     {
+      title: "Le Rituel",
+      subtitle: "AI-Powered Skincare Routine Platform",
+      description: "Production-grade skincare platform that builds a personalised AM/PM routine from scratch. Upload a selfie — Claude Sonnet 4.5 (vision) reads your skin surface and maps it to a skin type and concerns. Smart score-based recommendation engine curates products by skin type, budget, and allergies. Includes an AI chat assistant, ingredient conflict checker, daily progress tracking, and routine streak system.",
+      tags: ["LIVE PRODUCT", "FULL STACK", "AI/ML"],
+      technologies: ["FastAPI", "React 19", "MongoDB", "Claude AI", "Docker", "nginx"],
+      category: "AI/ML",
+      githubUrl: "https://github.com/Bilalk0804/Le-Rituel",
+      liveUrl: "https://nodeflowai.in",
+      image: "/projects/le-rituel.jpg",
+      accentColor: "#a6e3a1",
+    },
+    {
       title: "Nirnay",
       subtitle: "AI Agent for Systemic Analysis",
       description: "AI agent tailored for systemic analysis and startup ideation — given a domain or problem, it maps the competitive landscape, identifies gaps, and generates prioritized opportunity areas. Built for founders and researchers who think in systems.",
