@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const interests = [
-  { emoji: "⚽", label: "Football", sub: "National silver medalist" },
+  { emoji: "⚽", label: "Football", sub: "Inter IIITs silver medalist" },
   { emoji: "🍜", label: "Pune Food Explorer", sub: "Always on the hunt" },
   { emoji: "🐧", label: "Arch Linux", sub: "Rice enthusiast, AMD GPU gang" },
   { emoji: "📖", label: "Web Novels", sub: "Current obsession" },
