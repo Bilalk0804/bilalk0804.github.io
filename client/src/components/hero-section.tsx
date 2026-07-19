@@ -7,7 +7,7 @@ const TERMINAL_LINES = [
   "OS: Arch Linux x86_64",
   "WM: Hyprland",
   "Shell: zsh",
-  "Role: AI Engineer · Researcher · Builder",
+  "Role: AI Engineer · Full Stack Developer · Builder",
   "Status: open to work ✓",
 ];
 
@@ -70,7 +70,7 @@ export default function HeroSection() {
           className="text-sm md:text-base font-mono tracking-[0.3em] uppercase mb-4"
           style={{ color: "#cba6f7" }}
         >
-          AI Engineer &nbsp;·&nbsp; Researcher &nbsp;·&nbsp; Builder
+          AI Engineer &nbsp;·&nbsp; Full Stack Developer &nbsp;·&nbsp; Builder
         </motion.p>
 
         {/* Tagline */}

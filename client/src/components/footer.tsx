@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="font-mono text-white/50 text-sm mb-6 md:mb-0">
-            © 2025 Mohd Bilal Khan — Built with passion and code
+            © 2026 Mohd Bilal Khan — Built with passion and code
           </div>
           <div className="flex space-x-8">
             <a 

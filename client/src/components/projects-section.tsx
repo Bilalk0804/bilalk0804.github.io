@@ -44,39 +44,6 @@ export default function ProjectsSection() {
       accentColor: "#b4befe",
     },
     {
-      title: "Sentinel Core",
-      subtitle: "AI-Powered Digital Forensics Platform",
-      description: "Full-stack AI forensics platform analyzing USB drives and file systems through 5 specialized ML pipelines — Vision (YOLOv8), Text/NLP (BERT + BART), Malware (PE + TF-IDF), File Integrity (YARA), and Audio (Whisper). ₹4.2 crore Government of India-funded project. Master Agent uses GPT-4 and Google Gemini to generate forensic case summaries.",
-      tags: ["FORENSICS", "MULTI-AGENT", "GOI FUNDED"],
-      technologies: ["Python", "FastAPI", "PyTorch", "React", "TypeScript", "Docker"],
-      category: "SECURITY",
-      githubUrl: "https://github.com/Bilalk0804/Forensics-2",
-      image: "/projects/sentinel-core.jpg",
-      accentColor: "#f38ba8",
-    },
-    {
-      title: "Edge AI Speech Translation",
-      subtitle: "Real-Time On-Device ARM System",
-      description: "Low-latency speech-to-speech translation engine (ASR → MT → TTS) in C++ for ARM edge devices. Achieves <225ms utterance latency via ring buffer streaming. Custom GEMM kernels with ARM NEON (2 GFLOPS) and SME2 (8+ GFLOPS). 4x model compression (492MB → 123MB) via INT8/FP16 quantization with 95%+ accuracy preserved.",
-      tags: ["EMBEDDED", "C++", "SYSTEMS"],
-      technologies: ["C++", "ARM NEON/SME2", "PyTorch", "CMake"],
-      category: "RESEARCH",
-      githubUrl: "https://github.com/Bilalk0804/Speech-to-Speech",
-      image: "/projects/edge-ai-speech.jpg",
-      accentColor: "#fab387",
-    },
-    {
-      title: "Chili Disease Classifier",
-      subtitle: "Computer Vision Research",
-      description: "CNN-based pipeline for agricultural disease classification achieving 92.6% accuracy across multiple disease categories. Research manuscript in preparation. Optimized transfer learning pipeline with advanced augmentation for small-dataset robustness.",
-      tags: ["RESEARCH", "COMPUTER VISION", "CNN"],
-      technologies: ["PyTorch", "Computer Vision", "Transfer Learning"],
-      category: "RESEARCH",
-      kaggleUrl: "https://www.kaggle.com/code/bill080804/chilli-plant-leaves-with-augmentation",
-      image: "/projects/chili-classifier.jpg",
-      accentColor: "#a6e3a1",
-    },
-    {
       title: "Nirnay",
       subtitle: "AI Agent for Systemic Analysis",
       description: "AI agent tailored for systemic analysis and startup ideation — given a domain or problem, it maps the competitive landscape, identifies gaps, and generates prioritized opportunity areas. Built for founders and researchers who think in systems.",
@@ -100,7 +67,7 @@ export default function ProjectsSection() {
     },
   ];
 
-  const filters = ["ALL", "AI/ML", "SECURITY", "RESEARCH"];
+  const filters = ["ALL", "AI/ML"];
   const filtered = activeFilter === "ALL" ? projects : projects.filter((p) => p.category === activeFilter);
 
   return (
@@ -118,7 +85,7 @@ export default function ProjectsSection() {
             <div>
               <h2 className="text-5xl md:text-7xl font-bold text-white leading-none">Projects</h2>
               <p className="text-white/50 font-mono text-sm mt-4 max-w-xl">
-                From agentic AI systems and live products to computer vision research.
+                From agentic AI systems and live products to full stack builds.
               </p>
             </div>
             {/* Filter buttons */}
