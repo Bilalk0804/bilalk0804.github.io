@@ -1,67 +1,40 @@
-import { Github, Linkedin, FileText, Music, Pause, Play } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { Github, Linkedin, FileText, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
-const TRACK_NAME = "lofi chill — study beats";
+const TERMINAL_LINES = [
+  "$ neofetch",
+  "OS: Arch Linux x86_64",
+  "WM: Hyprland",
+  "Shell: zsh",
+  "Role: AI Engineer · Researcher · Builder",
+  "Status: open to work ✓",
+];
 
 export default function HeroSection() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [visibleLines, setVisibleLines] = useState(0);
 
   useEffect(() => {
-    // Using a royalty-free lofi track from the internet archive / public domain
-    const audio = new Audio("https://ia802908.us.archive.org/5/items/cdcovers_cd2/13_lo-fi_hip_hop_radio_mix.mp3");
-    audio.loop = true;
-    audio.volume = 0.35;
-    audioRef.current = audio;
-    return () => {
-      audio.pause();
-      audio.src = "";
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
-
-  const handlePlayClick = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    if (isPlaying) {
-      audio.pause();
-      setIsPlaying(false);
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    } else {
-      audio.play()
-        .then(() => {
-          setIsPlaying(true);
-          intervalRef.current = setInterval(() => {
-            if (audio.duration) setProgress((audio.currentTime / audio.duration) * 100);
-          }, 500);
-        })
-        .catch(() => {
-          // fallback: try local music.mp3
-          const fallback = new Audio("/music.mp3");
-          fallback.loop = true;
-          fallback.volume = 0.35;
-          audioRef.current = fallback;
-          fallback.play().then(() => setIsPlaying(true)).catch(console.error);
-        });
-    }
-  };
+    if (visibleLines >= TERMINAL_LINES.length) return;
+    const t = setTimeout(() => setVisibleLines((v) => v + 1), visibleLines === 0 ? 600 : 260);
+    return () => clearTimeout(t);
+  }, [visibleLines]);
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
-      {/* Grid background */}
+      {/* Corner grid background overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+          backgroundImage:
+            "linear-gradient(rgba(203,166,247,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(203,166,247,0.04) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
-      {/* Radial fade from center */}
-      <div className="absolute inset-0 bg-radial-gradient pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at center, transparent 0%, black 75%)" }}
+      {/* Radial vignette */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at center, transparent 0%, black 78%)" }}
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
@@ -72,17 +45,21 @@ export default function HeroSection() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="mb-6"
         >
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold font-mono text-white leading-none tracking-tight">
+          <h1
+            className="text-6xl md:text-8xl lg:text-9xl font-bold text-white leading-none tracking-tight"
+            style={{ fontFamily: "'JetBrains Mono', monospace" }}
+          >
             MOHD<br />BILAL KHAN
           </h1>
         </motion.div>
 
-        {/* Divider line */}
+        {/* Accent line */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="h-px bg-white/20 max-w-md mx-auto mb-8"
+          className="h-px max-w-md mx-auto mb-8"
+          style={{ background: "linear-gradient(90deg, transparent, #cba6f7, #89dceb, transparent)" }}
         />
 
         {/* Role */}
@@ -90,7 +67,8 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-sm md:text-base font-mono text-white/50 tracking-[0.3em] uppercase mb-4"
+          className="text-sm md:text-base font-mono tracking-[0.3em] uppercase mb-4"
+          style={{ color: "#cba6f7" }}
         >
           AI Engineer &nbsp;·&nbsp; Researcher &nbsp;·&nbsp; Builder
         </motion.p>
@@ -110,62 +88,67 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
-          className="flex items-center justify-center gap-2 mb-14"
+          className="flex items-center justify-center gap-2 mb-10"
         >
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: "#a6e3a1" }} />
+            <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: "#a6e3a1" }} />
           </span>
-          <span className="text-green-400/80 font-mono text-xs tracking-widest">OPEN TO OPPORTUNITIES</span>
+          <span className="font-mono text-xs tracking-widest" style={{ color: "#a6e3a1" }}>OPEN TO OPPORTUNITIES</span>
         </motion.div>
 
-        {/* Music Player */}
+        {/* Terminal window */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mb-14 flex flex-col items-center"
+          className="mb-12 flex flex-col items-center"
         >
-          <div className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-full px-6 py-3 backdrop-blur-sm hover:border-white/20 transition-all duration-300">
-            <Music className="w-4 h-4 text-white/40" />
-            <div className="flex flex-col items-start min-w-0">
-              <AnimatePresence mode="wait">
-                {isPlaying ? (
-                  <motion.span
-                    key="playing"
-                    initial={{ opacity: 0, y: 4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -4 }}
-                    className="text-white/70 font-mono text-xs truncate max-w-[150px]"
-                  >
-                    ♪ {TRACK_NAME}
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="paused"
-                    initial={{ opacity: 0, y: 4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -4 }}
-                    className="text-white/30 font-mono text-xs"
-                  >
-                    play something ✿
-                  </motion.span>
-                )}
-              </AnimatePresence>
-              {/* Progress bar */}
-              <div className="w-32 h-0.5 bg-white/10 rounded-full mt-1 overflow-hidden">
-                <motion.div
-                  className="h-full bg-white/50 rounded-full"
-                  style={{ width: `${progress}%` }}
-                />
-              </div>
+          <div
+            className="w-full max-w-sm text-left rounded-lg overflow-hidden border"
+            style={{ borderColor: "rgba(203,166,247,0.2)", background: "rgba(10,10,18,0.85)" }}
+          >
+            {/* Title bar */}
+            <div className="flex items-center gap-2 px-4 py-2 border-b" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+              <span className="w-3 h-3 rounded-full" style={{ background: "#f38ba8" }} />
+              <span className="w-3 h-3 rounded-full" style={{ background: "#fab387" }} />
+              <span className="w-3 h-3 rounded-full" style={{ background: "#a6e3a1" }} />
+              <span className="ml-2 font-mono text-xs text-white/30">bilal@arch ~ </span>
             </div>
-            <button
-              onClick={handlePlayClick}
-              className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black text-white transition-all duration-200"
-            >
-              {isPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3 ml-0.5" />}
-            </button>
+            {/* Terminal lines */}
+            <div className="px-4 py-3 space-y-0.5">
+              {TERMINAL_LINES.slice(0, visibleLines).map((line, i) => (
+                <p key={i} className="font-mono text-xs leading-relaxed">
+                  {line.startsWith("$") ? (
+                    <span>
+                      <span style={{ color: "#a6e3a1" }}>$</span>
+                      <span className="text-white/70">{line.slice(1)}</span>
+                    </span>
+                  ) : line.startsWith("OS:") || line.startsWith("WM:") || line.startsWith("Shell:") ? (
+                    <span>
+                      <span style={{ color: "#89dceb" }}>{line.split(":")[0]}:</span>
+                      <span className="text-white/60">{line.slice(line.indexOf(":") + 1)}</span>
+                    </span>
+                  ) : line.startsWith("Role:") ? (
+                    <span>
+                      <span style={{ color: "#cba6f7" }}>Role:</span>
+                      <span className="text-white/60">{line.slice(5)}</span>
+                    </span>
+                  ) : (
+                    <span>
+                      <span style={{ color: "#fab387" }}>Status:</span>
+                      <span style={{ color: "#a6e3a1" }}> open to work ✓</span>
+                    </span>
+                  )}
+                </p>
+              ))}
+              {visibleLines < TERMINAL_LINES.length && (
+                <p className="font-mono text-xs">
+                  <span style={{ color: "#a6e3a1" }}>$ </span>
+                  <span className="terminal-cursor" />
+                </p>
+              )}
+            </div>
           </div>
         </motion.div>
 
@@ -179,6 +162,7 @@ export default function HeroSection() {
           {[
             { href: "https://github.com/Bilalk0804", icon: Github, label: "GitHub" },
             { href: "https://www.linkedin.com/in/bilal-khan-219880285", icon: Linkedin, label: "LinkedIn" },
+            { href: "https://nodeflowai.in", icon: ExternalLink, label: "NodeFlowAI" },
             { href: "/resume.pdf", icon: FileText, label: "Resume" },
           ].map(({ href, icon: Icon, label }) => (
             <a

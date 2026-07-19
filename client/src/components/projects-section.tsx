@@ -13,13 +13,24 @@ type Project = {
   liveUrl?: string;
   kaggleUrl?: string;
   image?: string;
-  gradient: string;
+  accentColor: string;
 };
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("ALL");
 
   const projects: Project[] = [
+    {
+      title: "NodeFlowAI",
+      subtitle: "AI-Powered Node Flow Platform",
+      description: "My latest venture — an AI-native node-based workflow platform that lets you visually build, connect, and deploy AI pipelines. Think n8n meets LangGraph with a beautiful interface. Live at nodeflowai.in.",
+      tags: ["LIVE PRODUCT", "AI PLATFORM", "FULL STACK"],
+      technologies: ["React", "TypeScript", "AI/ML", "Node.js"],
+      category: "AI/ML",
+      liveUrl: "https://nodeflowai.in",
+      image: "/projects/nodeflowai.jpg",
+      accentColor: "#cba6f7",
+    },
     {
       title: "Sanjaya AI",
       subtitle: "Agentic Pharma Innovation Platform",
@@ -29,17 +40,19 @@ export default function ProjectsSection() {
       category: "AI/ML",
       githubUrl: "https://github.com/Bilalk0804/Sanjaya-AI",
       liveUrl: "https://sanjaya-ai.onrender.com",
-      gradient: "from-indigo-900 via-purple-900 to-black",
+      image: "/projects/sanjaya-ai.jpg",
+      accentColor: "#b4befe",
     },
     {
       title: "Sentinel Core",
       subtitle: "AI-Powered Digital Forensics Platform",
-      description: "Full-stack AI forensics platform analyzing USB drives and file systems through 5 specialized ML pipelines — Vision (YOLOv8), Text/NLP (BERT + BART), Malware (PE + TF-IDF), File Integrity (YARA), and Audio (Whisper). Master Agent uses GPT-4 and Google Gemini to generate forensic case summaries.",
-      tags: ["FORENSICS", "MULTI-AGENT", "COMPUTER VISION"],
+      description: "Full-stack AI forensics platform analyzing USB drives and file systems through 5 specialized ML pipelines — Vision (YOLOv8), Text/NLP (BERT + BART), Malware (PE + TF-IDF), File Integrity (YARA), and Audio (Whisper). ₹4.2 crore Government of India-funded project. Master Agent uses GPT-4 and Google Gemini to generate forensic case summaries.",
+      tags: ["FORENSICS", "MULTI-AGENT", "GOI FUNDED"],
       technologies: ["Python", "FastAPI", "PyTorch", "React", "TypeScript", "Docker"],
       category: "SECURITY",
       githubUrl: "https://github.com/Bilalk0804/Forensics-2",
-      gradient: "from-red-900 via-gray-900 to-black",
+      image: "/projects/sentinel-core.jpg",
+      accentColor: "#f38ba8",
     },
     {
       title: "Edge AI Speech Translation",
@@ -49,38 +62,30 @@ export default function ProjectsSection() {
       technologies: ["C++", "ARM NEON/SME2", "PyTorch", "CMake"],
       category: "RESEARCH",
       githubUrl: "https://github.com/Bilalk0804/Speech-to-Speech",
-      gradient: "from-orange-900 via-amber-900 to-black",
+      image: "/projects/edge-ai-speech.jpg",
+      accentColor: "#fab387",
     },
     {
       title: "Chili Disease Classifier",
       subtitle: "Computer Vision Research",
       description: "CNN-based pipeline for agricultural disease classification achieving 92.6% accuracy across multiple disease categories. Research manuscript in preparation. Optimized transfer learning pipeline with advanced augmentation for small-dataset robustness.",
       tags: ["RESEARCH", "COMPUTER VISION", "CNN"],
-      technologies: ["PyTorch", "Computer Vision", "Transfer Learning", "CNN"],
+      technologies: ["PyTorch", "Computer Vision", "Transfer Learning"],
       category: "RESEARCH",
       kaggleUrl: "https://www.kaggle.com/code/bill080804/chilli-plant-leaves-with-augmentation",
-      gradient: "from-green-900 via-emerald-900 to-black",
+      image: "/projects/chili-classifier.jpg",
+      accentColor: "#a6e3a1",
     },
-    // --- Newly Added Projects Below ---
     {
       title: "Nirnay",
       subtitle: "AI Agent for Systemic Analysis",
-      description: "Developed an AI agent tailored for systemic analysis and startup ideation.",
+      description: "AI agent tailored for systemic analysis and startup ideation — given a domain or problem, it maps the competitive landscape, identifies gaps, and generates prioritized opportunity areas. Built for founders and researchers who think in systems.",
       tags: ["AI AGENT", "IDEATION", "ANALYSIS"],
-      technologies: ["AI/ML", "Python"], 
+      technologies: ["Python", "LLMs", "LangChain"],
       category: "AI/ML",
       githubUrl: "https://github.com/Bilalk0804/Nirnay",
-      gradient: "from-blue-900 via-cyan-900 to-black",
-    },
-    {
-      title: "On-Device Speech Translation",
-      subtitle: "Real-Time ARM CPU System",
-      description: "Engineered a real-time, on-device speech-to-speech translation system optimized for ARM CPUs utilizing SME2 and NEON instructions.",
-      tags: ["EMBEDDED", "C/C++", "SPEECH"],
-      technologies: ["C++", "C", "ARM NEON", "SME2"],
-      category: "RESEARCH",
-      githubUrl: "https://github.com/Bilalk0804/Speech-to-Speech",
-      gradient: "from-orange-900 via-amber-900 to-black",
+      image: "/projects/nirnay.jpg",
+      accentColor: "#89dceb",
     },
     {
       title: "EvoMind",
@@ -90,9 +95,9 @@ export default function ProjectsSection() {
       technologies: ["Python", "LLM", "RAG", "FastAPI"],
       category: "AI/ML",
       githubUrl: "https://github.com/Bilalk0804/EvoMind",
-      gradient: "from-teal-900 via-emerald-900 to-black",
+      image: "/projects/evomind.jpg",
+      accentColor: "#94e2d5",
     },
-  
   ];
 
   const filters = ["ALL", "AI/ML", "SECURITY", "RESEARCH"];
@@ -113,7 +118,7 @@ export default function ProjectsSection() {
             <div>
               <h2 className="text-5xl md:text-7xl font-bold text-white leading-none">Projects</h2>
               <p className="text-white/50 font-mono text-sm mt-4 max-w-xl">
-                From agentic AI systems and hackathon tools to computer vision research.
+                From agentic AI systems and live products to computer vision research.
               </p>
             </div>
             {/* Filter buttons */}
@@ -122,11 +127,12 @@ export default function ProjectsSection() {
                 <button
                   key={f}
                   onClick={() => setActiveFilter(f)}
-                  className={`px-4 py-2 font-mono text-xs tracking-widest border border-white/20 transition-all duration-200 ${
+                  className="px-4 py-2 font-mono text-xs tracking-widest border border-white/20 transition-all duration-200"
+                  style={
                     activeFilter === f
-                      ? "bg-white text-black border-white"
-                      : "text-white/50 hover:text-white hover:border-white/50 bg-transparent"
-                  } first:rounded-l-none last:rounded-r-none`}
+                      ? { background: "#cba6f7", color: "#000", borderColor: "#cba6f7" }
+                      : { color: "rgba(255,255,255,0.5)", background: "transparent" }
+                  }
                 >
                   {f}
                 </button>
@@ -143,20 +149,35 @@ export default function ProjectsSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group flex flex-col md:flex-row gap-8 py-10 hover:bg-white/[0.02] transition-colors duration-300 -mx-6 px-6"
+              className="group flex flex-col md:flex-row gap-8 py-10 transition-colors duration-300 -mx-6 px-6"
+              style={{ '--accent': project.accentColor } as React.CSSProperties}
             >
               {/* Thumbnail */}
-              <div className="shrink-0 w-full md:w-64 h-44 overflow-hidden">
+              <div className="shrink-0 w-full md:w-72 h-48 overflow-hidden rounded-sm relative">
                 <div
-                  className={`w-full h-full bg-gradient-to-br ${project.gradient} flex items-center justify-center rounded-sm`}
+                  className="w-full h-full"
+                  style={{
+                    borderLeft: `2px solid ${project.accentColor}30`,
+                  }}
                 >
                   {project.image ? (
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   ) : (
-                    <span className="text-white/20 font-mono text-4xl font-bold select-none">
-                      {project.title.slice(0, 2).toUpperCase()}
-                    </span>
+                    <div className="w-full h-full flex items-center justify-center bg-white/5">
+                      <span className="text-white/20 font-mono text-4xl font-bold select-none">
+                        {project.title.slice(0, 2).toUpperCase()}
+                      </span>
+                    </div>
                   )}
+                  {/* Accent overlay on hover */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: `linear-gradient(135deg, ${project.accentColor}15, transparent)` }}
+                  />
                 </div>
               </div>
 
@@ -167,7 +188,8 @@ export default function ProjectsSection() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-white/25 text-white/60 font-mono text-xs px-3 py-1 tracking-widest"
+                      className="font-mono text-xs px-3 py-1 tracking-widest border"
+                      style={{ borderColor: `${project.accentColor}50`, color: project.accentColor }}
                     >
                       {tag}
                     </span>
@@ -183,9 +205,12 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-white/90 transition-colors mb-2">
+                <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-white/90 transition-colors mb-1">
                   {project.title}
                 </h3>
+                <p className="font-mono text-xs tracking-widest mb-3" style={{ color: `${project.accentColor}99` }}>
+                  {project.subtitle}
+                </p>
 
                 {/* Description */}
                 <p className="text-white/55 leading-relaxed text-sm md:text-base mb-4">
@@ -199,7 +224,7 @@ export default function ProjectsSection() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-white/40 hover:text-white font-mono text-xs tracking-wider transition-colors duration-200"
+                      className="flex items-center gap-2 font-mono text-xs tracking-wider transition-colors duration-200 text-white/40 hover:text-white"
                     >
                       <Github className="w-4 h-4" />
                       GITHUB
@@ -210,7 +235,8 @@ export default function ProjectsSection() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-white/40 hover:text-white font-mono text-xs tracking-wider transition-colors duration-200"
+                      className="flex items-center gap-2 font-mono text-xs tracking-wider transition-colors duration-200"
+                      style={{ color: project.accentColor }}
                     >
                       <ExternalLink className="w-4 h-4" />
                       LIVE DEMO
